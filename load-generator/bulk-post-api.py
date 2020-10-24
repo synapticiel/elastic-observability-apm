@@ -2,7 +2,7 @@ import csv
 import json
 import requests
 
-api_url = 'http://share.synapticiel.co/car-back-end-1.1/api/cars'
+api_url = 'http://localhost:8081/api/cars'
 
 
 for row in csv.DictReader(open('./input-cars.csv')):

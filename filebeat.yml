@@ -1,0 +1,31 @@
+filebeat.inputs:
+
+# Each - is an input. Most options can be set at the input level, so
+# you can use different inputs for various configurations.
+# Below are the input specific configurations.
+
+- type: log
+
+  # Change to true to enable this input configuration.
+  enabled: true
+
+  # Paths that should be crawled and fetched. Glob based paths.
+  paths:
+    - /apache-tomcat/logs/car-back-end-log.json
+    - /apache-tomcat/logs/car-value-estimator-log.json
+    - /spring-boot/car-back-end/logs/car-back-end-log.json
+    - /spring-boot/car-value-estimator/logs/car-value-estimator-log.json
+  json:
+   keys_under_root: true
+   overwrite_keys: true
+   add_error_key: true
+      
+setup.template.settings:
+  index.number_of_shards: 1
+  index.number_of_replicas: 0
+  index.codec: best_compression
+  
+
+output.elasticsearch:
+  hosts:
+    - 'localhost:9200'

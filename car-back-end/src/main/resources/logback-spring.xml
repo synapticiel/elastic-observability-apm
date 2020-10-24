@@ -6,13 +6,25 @@
 		<file>${LOG_PATH:-./logs}/car-back-end-log.json</file>
 		<rollingPolicy
 			class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
-			<fileNamePattern>car-back-end-log.json.%d{yyyy-MM-dd}.gz
+			<fileNamePattern>./logs/car-back-end-log.json.%d{yyyy-MM-dd}.gz
 			</fileNamePattern>
 			<maxHistory>7</maxHistory>
 		</rollingPolicy>
 		<!-- https://github.com/elastic/ecs-logging-java/tree/master/logback-ecs-encoder -->
 		<encoder class="co.elastic.logging.logback.EcsEncoder">
-			<serviceName>car-front-end</serviceName>
+			<serviceName>car-back-end</serviceName>
+			<eventDataset>car-back-end.log</eventDataset>
+			<includeMarkers>true</includeMarkers>
+			<stackTraceAsArray>false</stackTraceAsArray>
+			<includeOrigin>true</includeOrigin>
+			<additionalField>
+				<key>event.module</key>
+				<value>backend-car</value>
+			</additionalField>
+			<additionalField>
+				<key>event.category</key>
+				<value>log</value>
+			</additionalField>
 		</encoder>
 	</appender>
 	<root level="INFO">
