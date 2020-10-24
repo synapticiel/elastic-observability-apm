@@ -2,7 +2,7 @@
 
 <p align='center'>This repository includes demo apps for Elastic Observability.</p>
 
-## Elastic Morocco Users Groups
+## Elastic Morocco Users Group
 
 Join us for more comming events on
 - [Morocco Chapter](https://community.elastic.co/morocco)
